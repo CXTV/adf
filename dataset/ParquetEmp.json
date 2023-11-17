@@ -1,0 +1,21 @@
+{
+	"name": "ParquetEmp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lg_blob_demolg01",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "output",
+				"container": "itsource"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

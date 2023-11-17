@@ -1,0 +1,25 @@
+{
+	"name": "EmpTxt",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lg_blob_demolg01",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "employee.txt",
+				"folderPath": "input",
+				"container": "itsource"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

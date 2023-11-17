@@ -1,0 +1,17 @@
+{
+	"name": "db108lgEmp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_db108lg",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Emp"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
