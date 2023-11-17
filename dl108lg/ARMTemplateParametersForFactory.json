@@ -4,6 +4,12 @@
 	"parameters": {
 		"factoryName": {
 			"value": "dl108lg"
+		},
+		"lg_blob_demolg01_connectionString": {
+			"value": ""
+		},
+		"ls_db108lg_connectionString": {
+			"value": ""
 		}
 	}
 }
