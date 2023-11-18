@@ -1,0 +1,16 @@
+{
+	"name": "sql_private_point",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sql_private_end_point",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Emp"
+		}
+	}
+}
