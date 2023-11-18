@@ -7,6 +7,14 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "dl108lg"
 		},
+		"blb_input_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'blb_input'"
+		},
+		"blb_output_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'blb_output'"
+		},
 		"lg_blob_demolg01_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'lg_blob_demolg01'"
@@ -14,6 +22,14 @@
 		"ls_db108lg_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_db108lg'"
+		},
+		"fxxprivateEndpoin_properties_privateLinkResourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/887482da-cd1c-4447-a2c2-358a49479a72/resourceGroups/DE/providers/Microsoft.Sql/servers/sqlserver108lg"
+		},
+		"fxxprivateEndpoin_properties_groupId": {
+			"type": "string",
+			"defaultValue": "sqlServer"
 		},
 		"containerUri": {
 			"type": "string",
@@ -42,11 +58,23 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"blb_input_connectionString": {
+						"value": "[parameters('blb_input_connectionString')]"
+					},
+					"blb_output_connectionString": {
+						"value": "[parameters('blb_output_connectionString')]"
+					},
 					"lg_blob_demolg01_connectionString": {
 						"value": "[parameters('lg_blob_demolg01_connectionString')]"
 					},
 					"ls_db108lg_connectionString": {
 						"value": "[parameters('ls_db108lg_connectionString')]"
+					},
+					"fxxprivateEndpoin_properties_privateLinkResourceId": {
+						"value": "[parameters('fxxprivateEndpoin_properties_privateLinkResourceId')]"
+					},
+					"fxxprivateEndpoin_properties_groupId": {
+						"value": "[parameters('fxxprivateEndpoin_properties_groupId')]"
 					}
 				}
 			},

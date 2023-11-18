@@ -5,11 +5,23 @@
 		"factoryName": {
 			"value": "dl108lg"
 		},
+		"blb_input_connectionString": {
+			"value": ""
+		},
+		"blb_output_connectionString": {
+			"value": ""
+		},
 		"lg_blob_demolg01_connectionString": {
 			"value": ""
 		},
 		"ls_db108lg_connectionString": {
 			"value": ""
+		},
+		"fxxprivateEndpoin_properties_privateLinkResourceId": {
+			"value": "/subscriptions/887482da-cd1c-4447-a2c2-358a49479a72/resourceGroups/DE/providers/Microsoft.Sql/servers/sqlserver108lg"
+		},
+		"fxxprivateEndpoin_properties_groupId": {
+			"value": "sqlServer"
 		}
 	}
 }
