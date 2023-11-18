@@ -2,6 +2,9 @@
 	"name": "fxxprivateEndpoin",
 	"properties": {
 		"privateLinkResourceId": "/subscriptions/887482da-cd1c-4447-a2c2-358a49479a72/resourceGroups/DE/providers/Microsoft.Sql/servers/sqlserver108lg",
-		"groupId": "sqlServer"
+		"groupId": "sqlServer",
+		"fqdns": [
+			"sqlserver108lg.database.windows.net"
+		]
 	}
 }
