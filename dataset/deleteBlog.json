@@ -15,10 +15,11 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"container": {
+				"folderPath": {
 					"value": "@dataset().FolderName",
 					"type": "Expression"
-				}
+				},
+				"container": "itsource"
 			}
 		}
 	}
