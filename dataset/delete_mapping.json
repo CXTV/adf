@@ -1,0 +1,16 @@
+{
+	"name": "delete_mapping",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_db108lg",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DeleteMap"
+		}
+	}
+}
