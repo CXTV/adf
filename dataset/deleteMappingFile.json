@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "DeleteMap.txt"
+				"fileName": "DeleteMap.txt",
+				"container": "itsource"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
