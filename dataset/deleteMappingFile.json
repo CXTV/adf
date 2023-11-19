@@ -2,7 +2,7 @@
 	"name": "deleteMappingFile",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "deleteBlob",
+			"referenceName": "deleteFile",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "DeleteMap"
+				"fileName": "DeleteMap.txt"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
