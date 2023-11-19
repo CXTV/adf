@@ -15,6 +15,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'blb_output'"
 		},
+		"deleteBlob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'deleteBlob'"
+		},
 		"lg_blob_demolg01_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'lg_blob_demolg01'"
@@ -30,6 +34,12 @@
 		"fxxprivateEndpoin_properties_groupId": {
 			"type": "string",
 			"defaultValue": "sqlServer"
+		},
+		"fxxprivateEndpoin_properties_fqdns": {
+			"type": "array",
+			"defaultValue": [
+				"sqlserver108lg.database.windows.net"
+			]
 		},
 		"containerUri": {
 			"type": "string",
@@ -64,6 +74,9 @@
 					"blb_output_connectionString": {
 						"value": "[parameters('blb_output_connectionString')]"
 					},
+					"deleteBlob_connectionString": {
+						"value": "[parameters('deleteBlob_connectionString')]"
+					},
 					"lg_blob_demolg01_connectionString": {
 						"value": "[parameters('lg_blob_demolg01_connectionString')]"
 					},
@@ -75,10 +88,33 @@
 					},
 					"fxxprivateEndpoin_properties_groupId": {
 						"value": "[parameters('fxxprivateEndpoin_properties_groupId')]"
+					},
+					"fxxprivateEndpoin_properties_fqdns": {
+						"value": "[parameters('fxxprivateEndpoin_properties_fqdns')]"
 					}
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "dl108lg_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'dl108lg_ArmTemplate_0')]"
+			]
 		}
 	]
 }

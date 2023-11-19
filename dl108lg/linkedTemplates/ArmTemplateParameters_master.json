@@ -11,6 +11,9 @@
 		"blb_output_connectionString": {
 			"value": ""
 		},
+		"deleteBlob_connectionString": {
+			"value": ""
+		},
 		"lg_blob_demolg01_connectionString": {
 			"value": ""
 		},
@@ -22,6 +25,11 @@
 		},
 		"fxxprivateEndpoin_properties_groupId": {
 			"value": "sqlServer"
+		},
+		"fxxprivateEndpoin_properties_fqdns": {
+			"value": [
+				"sqlserver108lg.database.windows.net"
+			]
 		},
 		"containerUri": {
 			"value": ""
