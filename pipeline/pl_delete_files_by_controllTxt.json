@@ -54,6 +54,26 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "get_delete_file_content",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "Copy controll file from sql",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": []
 			}
 		],
 		"annotations": []
