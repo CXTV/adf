@@ -130,7 +130,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"FolderName": {
-											"value": "@item()[0]",
+											"value": "@item().foldername",
 											"type": "Expression"
 										}
 									}
@@ -146,7 +146,7 @@
 									"type": "AzureBlobStorageReadSettings",
 									"recursive": true,
 									"wildcardFileName": {
-										"value": "@{item()[1]}",
+										"value": "@{item().wildcard}",
 										"type": "Expression"
 									},
 									"enablePartitionDiscovery": false
