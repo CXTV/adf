@@ -9,7 +9,7 @@
 			"FileName": {
 				"type": "string"
 			},
-			"ContainerName": {
+			"CName": {
 				"type": "string"
 			}
 		},
@@ -22,10 +22,7 @@
 					"value": "@dataset().FileName",
 					"type": "Expression"
 				},
-				"container": {
-					"value": "@dataset().ContainerName",
-					"type": "Expression"
-				}
+				"container": "itsource"
 			}
 		}
 	}
