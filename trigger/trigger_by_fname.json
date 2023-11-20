@@ -22,7 +22,8 @@
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/887482da-cd1c-4447-a2c2-358a49479a72/resourceGroups/DE/providers/Microsoft.Storage/storageAccounts/demolg01",
 			"events": [
-				"Microsoft.Storage.BlobCreated"
+				"Microsoft.Storage.BlobCreated",
+				"Microsoft.Storage.BlobDeleted"
 			]
 		}
 	}
