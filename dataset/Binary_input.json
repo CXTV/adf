@@ -22,10 +22,11 @@
 					"value": "@dataset().FileName",
 					"type": "Expression"
 				},
-				"container": {
+				"folderPath": {
 					"value": "@dataset().ContainerPath",
 					"type": "Expression"
-				}
+				},
+				"container": "itsource"
 			}
 		}
 	}
