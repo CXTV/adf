@@ -58,10 +58,10 @@
 			}
 		],
 		"parameters": {
-			"fname_pl": {
+			"fname": {
 				"type": "string"
 			},
-			"cname_pl": {
+			"cname": {
 				"type": "string"
 			}
 		},
