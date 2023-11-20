@@ -19,6 +19,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'deleteBlob'"
 		},
+		"deleteFile_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'deleteFile'"
+		},
 		"lg_blob_demolg01_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'lg_blob_demolg01'"
@@ -27,19 +31,17 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_db108lg'"
 		},
-		"fxxprivateEndpoin_properties_privateLinkResourceId": {
+		"trigger_by_fname_properties_pl_st_event_trigger_parameters_fname": {
 			"type": "string",
-			"defaultValue": "/subscriptions/887482da-cd1c-4447-a2c2-358a49479a72/resourceGroups/DE/providers/Microsoft.Sql/servers/sqlserver108lg"
+			"defaultValue": "@triggerBody().fileName"
 		},
-		"fxxprivateEndpoin_properties_groupId": {
+		"trigger_by_fname_properties_pl_st_event_trigger_parameters_cname": {
 			"type": "string",
-			"defaultValue": "sqlServer"
+			"defaultValue": "@triggerBody().folderPath"
 		},
-		"fxxprivateEndpoin_properties_fqdns": {
-			"type": "array",
-			"defaultValue": [
-				"sqlserver108lg.database.windows.net"
-			]
+		"trigger_by_fname_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/887482da-cd1c-4447-a2c2-358a49479a72/resourceGroups/DE/providers/Microsoft.Storage/storageAccounts/demolg01"
 		},
 		"containerUri": {
 			"type": "string",
@@ -77,20 +79,14 @@
 					"deleteBlob_connectionString": {
 						"value": "[parameters('deleteBlob_connectionString')]"
 					},
+					"deleteFile_connectionString": {
+						"value": "[parameters('deleteFile_connectionString')]"
+					},
 					"lg_blob_demolg01_connectionString": {
 						"value": "[parameters('lg_blob_demolg01_connectionString')]"
 					},
 					"ls_db108lg_connectionString": {
 						"value": "[parameters('ls_db108lg_connectionString')]"
-					},
-					"fxxprivateEndpoin_properties_privateLinkResourceId": {
-						"value": "[parameters('fxxprivateEndpoin_properties_privateLinkResourceId')]"
-					},
-					"fxxprivateEndpoin_properties_groupId": {
-						"value": "[parameters('fxxprivateEndpoin_properties_groupId')]"
-					},
-					"fxxprivateEndpoin_properties_fqdns": {
-						"value": "[parameters('fxxprivateEndpoin_properties_fqdns')]"
 					}
 				}
 			},
@@ -109,6 +105,15 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"trigger_by_fname_properties_pl_st_event_trigger_parameters_fname": {
+						"value": "[parameters('trigger_by_fname_properties_pl_st_event_trigger_parameters_fname')]"
+					},
+					"trigger_by_fname_properties_pl_st_event_trigger_parameters_cname": {
+						"value": "[parameters('trigger_by_fname_properties_pl_st_event_trigger_parameters_cname')]"
+					},
+					"trigger_by_fname_properties_typeProperties_scope": {
+						"value": "[parameters('trigger_by_fname_properties_typeProperties_scope')]"
 					}
 				}
 			},

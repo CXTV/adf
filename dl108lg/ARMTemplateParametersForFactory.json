@@ -14,22 +14,23 @@
 		"deleteBlob_connectionString": {
 			"value": ""
 		},
+		"deleteFile_connectionString": {
+			"value": ""
+		},
 		"lg_blob_demolg01_connectionString": {
 			"value": ""
 		},
 		"ls_db108lg_connectionString": {
 			"value": ""
 		},
-		"fxxprivateEndpoin_properties_privateLinkResourceId": {
-			"value": "/subscriptions/887482da-cd1c-4447-a2c2-358a49479a72/resourceGroups/DE/providers/Microsoft.Sql/servers/sqlserver108lg"
+		"trigger_by_fname_properties_pl_st_event_trigger_parameters_fname": {
+			"value": "@triggerBody().fileName"
 		},
-		"fxxprivateEndpoin_properties_groupId": {
-			"value": "sqlServer"
+		"trigger_by_fname_properties_pl_st_event_trigger_parameters_cname": {
+			"value": "@triggerBody().folderPath"
 		},
-		"fxxprivateEndpoin_properties_fqdns": {
-			"value": [
-				"sqlserver108lg.database.windows.net"
-			]
+		"trigger_by_fname_properties_typeProperties_scope": {
+			"value": "/subscriptions/887482da-cd1c-4447-a2c2-358a49479a72/resourceGroups/DE/providers/Microsoft.Storage/storageAccounts/demolg01"
 		}
 	}
 }
