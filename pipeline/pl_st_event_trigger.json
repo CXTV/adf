@@ -39,11 +39,11 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"FileName": {
-								"value": "@pipeline().parameters.fname_pl",
+								"value": "@pipeline().parameters.fname",
 								"type": "Expression"
 							},
 							"ContainerPath": {
-								"value": "@pipeline().parameters.cname_pl",
+								"value": "@pipeline().parameters.cname",
 								"type": "Expression"
 							}
 						}

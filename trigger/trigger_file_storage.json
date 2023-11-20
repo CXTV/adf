@@ -11,8 +11,8 @@
 					"type": "PipelineReference"
 				},
 				"parameters": {
-					"fname_pl": "@triggerBody().fileName",
-					"cname_pl": "@triggerBody().folderPath"
+					"fname": "@triggerBody().fileName",
+					"cname": "@triggerBody().folderPath"
 				}
 			}
 		],
