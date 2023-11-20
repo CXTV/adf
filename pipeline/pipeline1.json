@@ -39,7 +39,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"FileName": {
-								"value": "@pipeline().parameters.fName",
+								"value": "@pipeline().parameters.fname",
 								"type": "Expression"
 							}
 						}
@@ -54,7 +54,7 @@
 			}
 		],
 		"parameters": {
-			"fName": {
+			"fname": {
 				"type": "string"
 			}
 		},
