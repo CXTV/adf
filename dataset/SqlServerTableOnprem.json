@@ -1,0 +1,23 @@
+{
+	"name": "SqlServerTableOnprem",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerOnPrem",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"DETableName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"table": {
+				"value": "@dataset().DETableName",
+				"type": "Expression"
+			}
+		}
+	}
+}
