@@ -29,7 +29,7 @@
 				}
 			},
 			{
-				"name": "get_table_ForEach",
+				"name": "ForEach_list",
 				"type": "ForEach",
 				"dependsOn": [
 					{
@@ -48,7 +48,24 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Copy data from azureSQL",
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "Name",
+								"value": {
+									"value": "@item().name",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Copy data",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
@@ -83,7 +100,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "AzureSqlTable",
+									"referenceName": "AzureSqlSource",
 									"type": "DatasetReference",
 									"parameters": {
 										"TableName": {
@@ -95,10 +112,10 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "SqlServerOnPrem",
+									"referenceName": "SqlServerLocal",
 									"type": "DatasetReference",
 									"parameters": {
-										"DeTableName": {
+										"DETableName": {
 											"value": "@item().name",
 											"type": "Expression"
 										}
@@ -110,6 +127,11 @@
 				}
 			}
 		],
+		"variables": {
+			"Name": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
