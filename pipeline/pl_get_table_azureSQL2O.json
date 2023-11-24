@@ -29,7 +29,7 @@
 				}
 			},
 			{
-				"name": "get_table",
+				"name": "get_table_ForEach",
 				"type": "ForEach",
 				"dependsOn": [
 					{
@@ -98,7 +98,7 @@
 									"referenceName": "SqlServerOnPrem",
 									"type": "DatasetReference",
 									"parameters": {
-										"TableName": {
+										"DeTableName": {
 											"value": "@item().name",
 											"type": "Expression"
 										}
