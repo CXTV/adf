@@ -1,0 +1,24 @@
+{
+	"name": "SqlServerSMDB",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerOnPrem",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"DETableName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": {
+				"value": "@dataset().DETableName",
+				"type": "Expression"
+			}
+		}
+	}
+}
