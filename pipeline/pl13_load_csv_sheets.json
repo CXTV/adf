@@ -1,0 +1,78 @@
+{
+	"name": "pl13_load_csv_sheets",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.sheetList",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "SheetName",
+								"value": {
+									"value": "@item().SheetName",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Set variable1_copy1",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "SheetName",
+								"value": {
+									"value": "@item().SheetName",
+									"type": "Expression"
+								}
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"sheetList": {
+				"type": "array",
+				"defaultValue": [
+					{
+						"sheetName": "productName"
+					},
+					{
+						"sheetName": "customer"
+					},
+					{
+						"sheetName": "address"
+					}
+				]
+			}
+		},
+		"variables": {
+			"SheetName": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
