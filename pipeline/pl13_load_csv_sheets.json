@@ -30,23 +30,6 @@
 									"type": "Expression"
 								}
 							}
-						},
-						{
-							"name": "Set variable1_copy1",
-							"type": "SetVariable",
-							"dependsOn": [],
-							"policy": {
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"variableName": "SheetName",
-								"value": {
-									"value": "@item().SheetName",
-									"type": "Expression"
-								}
-							}
 						}
 					]
 				}
