@@ -1,0 +1,61 @@
+{
+	"name": "Json_Emp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "blb_input",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "employee_info.txt",
+				"folderPath": "input",
+				"container": "itsource"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"first_name": {
+					"type": "string"
+				},
+				"last_name": {
+					"type": "string"
+				},
+				"location": {
+					"type": "string"
+				},
+				"Children": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"age": {
+								"type": "integer"
+							}
+						}
+					}
+				},
+				"social_media": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"description": {
+								"type": "string"
+							},
+							"link": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
