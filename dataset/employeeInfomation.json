@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedText1",
+	"name": "employeeInfomation",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "blb_output",
