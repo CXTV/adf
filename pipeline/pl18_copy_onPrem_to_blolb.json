@@ -67,11 +67,11 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "it_output_TXT",
+									"referenceName": "Stu_csv",
 									"type": "DatasetReference",
 									"parameters": {
-										"TableName": {
-											"value": "@item()",
+										"FileName": {
+											"value": "@concat(item(),'csv')",
 											"type": "Expression"
 										}
 									}
