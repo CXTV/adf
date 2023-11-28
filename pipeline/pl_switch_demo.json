@@ -1,0 +1,66 @@
+{
+	"name": "pl_switch_demo",
+	"properties": {
+		"activities": [
+			{
+				"name": "Switch by pfile",
+				"type": "Switch",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"on": {
+						"value": "@pipeline().parameters.Pfile",
+						"type": "Expression"
+					},
+					"cases": [
+						{
+							"value": "fxx",
+							"activities": [
+								{
+									"name": "fxx wait",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 1
+									}
+								}
+							]
+						},
+						{
+							"value": "gjj",
+							"activities": [
+								{
+									"name": "gjj wait",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 1
+									}
+								}
+							]
+						}
+					],
+					"defaultActivities": [
+						{
+							"name": "all wait",
+							"type": "Wait",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"waitTimeInSeconds": 1
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"Pfile": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}

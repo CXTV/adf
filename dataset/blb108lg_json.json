@@ -1,0 +1,20 @@
+{
+	"name": "blb108lg_json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "blb_input",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "pInfo.json",
+				"folderPath": "input",
+				"container": "itsource"
+			}
+		},
+		"schema": {}
+	}
+}

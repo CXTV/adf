@@ -1,0 +1,76 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Json_Emp",
+						"type": "DatasetReference"
+					},
+					"name": "empInfoTXT"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "flatten_empInfo",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "flatten1"
+				},
+				{
+					"name": "flatten2"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          first_name as string,",
+				"          last_name as string,",
+				"          location as string,",
+				"          Children as (name as string, age as integer)[],",
+				"          social_media as (description as string, link as string)[]",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'arrayOfDocuments') ~> empInfoTXT",
+				"empInfoTXT foldDown(unroll(Children, Children),",
+				"     mapColumn(",
+				"          first_name,",
+				"          last_name,",
+				"          location,",
+				"          name = Children.name,",
+				"          age = Children.age,",
+				"          social_media = social_media",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatten1",
+				"flatten1 foldDown(unroll(social_media, social_media),",
+				"     mapColumn(",
+				"          first_name,",
+				"          last_name,",
+				"          location,",
+				"          name,",
+				"          age,",
+				"          description = social_media.description,",
+				"          link = social_media.link",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatten2",
+				"flatten2 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     partitionFileNames:['empJson.csv'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sink1"
+			]
+		}
+	}
+}

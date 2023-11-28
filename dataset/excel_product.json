@@ -1,0 +1,30 @@
+{
+	"name": "excel_product",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "blb_input",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"sheetIndex": {
+				"type": "int"
+			}
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "product.xls",
+				"folderPath": "input",
+				"container": "itsource"
+			},
+			"sheetIndex": {
+				"value": "@dataset().sheetIndex",
+				"type": "Expression"
+			},
+			"firstRowAsHeader": false
+		},
+		"schema": []
+	}
+}
