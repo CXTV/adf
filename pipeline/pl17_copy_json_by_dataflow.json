@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "dataflow1",
+						"referenceName": "df_flatten_json",
 						"type": "DataFlowReference"
 					},
 					"compute": {
