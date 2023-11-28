@@ -1,5 +1,5 @@
 {
-	"name": "pl17_copy_json_by_dataflow",
+	"name": "pl19_data_flow_merge_2talbes",
 	"properties": {
 		"activities": [
 			{
@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "df_flatten_json",
+						"referenceName": "dataflow_merge_emp",
 						"type": "DataFlowReference"
 					},
 					"compute": {
