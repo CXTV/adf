@@ -1,5 +1,5 @@
 {
-	"name": "dataflow1",
+	"name": "df_flatten_json",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -48,7 +48,7 @@
 				"          location,",
 				"          name = Children.name,",
 				"          age = Children.age,",
-				"          social_media = social_media",
+				"          social_media",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flatten1",
