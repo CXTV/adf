@@ -1,0 +1,47 @@
+{
+	"name": "groupBydepartment",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "employeeTXT",
+						"type": "DatasetReference"
+					},
+					"name": "employeeGroups"
+				}
+			],
+			"sinks": [
+				{
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "groupById",
+					"description": "count(*) group by id"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          empid as string,",
+				"          name as string,",
+				"          country as string,",
+				"          department as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     partitionBy('hash', 1)) ~> employeeGroups",
+				"employeeGroups aggregate(groupBy(department),",
+				"     TotalEmp = count(department),",
+				"     partitionBy('hash', 1)) ~> groupById",
+				"groupById sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}
