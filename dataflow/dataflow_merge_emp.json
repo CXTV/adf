@@ -60,7 +60,7 @@
 				"     broadcast: 'off')~> joinEmpDep",
 				"joinEmpDep sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     partitionFileNames:['emp_de'],",
+				"     partitionFileNames:['emp_dep.csv'],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     mapColumn(",
