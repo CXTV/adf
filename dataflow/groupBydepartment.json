@@ -1,5 +1,5 @@
 {
-	"name": "dataflow_merge_emp",
+	"name": "groupBydepartment",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -9,28 +9,32 @@
 						"referenceName": "employeeTXT",
 						"type": "DatasetReference"
 					},
-					"name": "emp"
+					"name": "employeeGroups"
 				},
 				{
 					"dataset": {
 						"referenceName": "dep",
 						"type": "DatasetReference"
 					},
-					"name": "dep"
+					"name": "departmentTable"
 				}
 			],
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "empDep",
+						"referenceName": "departmentsGroups",
 						"type": "DatasetReference"
 					},
-					"name": "sink"
+					"name": "sink1"
 				}
 			],
 			"transformations": [
 				{
-					"name": "joinEmpDep"
+					"name": "groupById",
+					"description": "count(*) group by id"
+				},
+				{
+					"name": "joinToDepartment"
 				}
 			],
 			"scriptLines": [
@@ -43,7 +47,7 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     partitionBy('hash', 1)) ~> emp",
+				"     partitionBy('hash', 1)) ~> employeeGroups",
 				"source(output(",
 				"          depid as string,",
 				"          depname as string",
@@ -51,25 +55,26 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     partitionBy('hash', 1)) ~> dep",
-				"emp, dep join(department == depid,",
+				"     partitionBy('hash', 1)) ~> departmentTable",
+				"employeeGroups aggregate(groupBy(department),",
+				"     TotalEmp = count(department),",
+				"     partitionBy('hash', 1)) ~> groupById",
+				"groupById, departmentTable join(department == depid,",
 				"     joinType:'left',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     partitionBy('hash', 1),",
-				"     broadcast: 'off')~> joinEmpDep",
-				"joinEmpDep sink(allowSchemaDrift: true,",
+				"     broadcast: 'auto')~> joinToDepartment",
+				"joinToDepartment sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     partitionFileNames:['emp_dep.csv'],",
+				"     partitionFileNames:['depGroups'],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     mapColumn(",
-				"          empid,",
-				"          name,",
-				"          country,",
+				"          TotalEmp,",
 				"          depname",
 				"     ),",
-				"     partitionBy('hash', 1)) ~> sink"
+				"     partitionBy('hash', 1)) ~> sink1"
 			]
 		}
 	}

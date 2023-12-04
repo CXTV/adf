@@ -1,9 +1,9 @@
 {
-	"name": "pl19_data_flow_merge_2talbes",
+	"name": "pl20_groupByDep",
 	"properties": {
 		"activities": [
 			{
-				"name": "Data flow1",
+				"name": "Data flow",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
@@ -16,17 +16,14 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "dataflow_merge_emp",
+						"referenceName": "groupBydepartment",
 						"type": "DataFlowReference"
 					},
 					"compute": {
 						"coreCount": 8,
 						"computeType": "General"
 					},
-					"traceLevel": "None",
-					"cacheSinks": {
-						"firstRowOnly": true
-					}
+					"traceLevel": "Fine"
 				}
 			}
 		],
