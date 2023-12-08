@@ -1,5 +1,5 @@
 {
-	"name": "pl23_p23_review",
+	"name": "pl24_p23_review",
 	"properties": {
 		"activities": [
 			{
@@ -51,6 +51,7 @@
 								],
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
