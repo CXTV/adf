@@ -1,5 +1,5 @@
 {
-	"name": "pl22_pl21_review",
+	"name": "pl23_pl21_review",
 	"properties": {
 		"activities": [
 			{
@@ -24,6 +24,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
